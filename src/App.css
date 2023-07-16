@@ -101,3 +101,20 @@
   font-size: 1.1em;
   font-weight: bold;
 }
+
+.user-info button{
+  border: transparent;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  top: 3.5px;
+}
+
+.user-info button img{
+  width: 15px;
+  height: 15px;
+}
+
+.user-info button img:hover{
+  opacity: 0.5;
+}
