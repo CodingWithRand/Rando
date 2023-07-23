@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Convenience-Note/static/css/main.9450db12.css",
-    "main.js": "/Convenience-Note/static/js/main.afebccee.js",
-    "static/js/787.f9772654.chunk.js": "/Convenience-Note/static/js/787.f9772654.chunk.js",
-    "static/media/user.png": "/Convenience-Note/static/media/user.cdec7c088dcf9fb0e2c3.png",
-    "static/media/logo.svg": "/Convenience-Note/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/Convenience-Note/index.html",
-    "main.9450db12.css.map": "/Convenience-Note/static/css/main.9450db12.css.map",
-    "main.afebccee.js.map": "/Convenience-Note/static/js/main.afebccee.js.map",
-    "787.f9772654.chunk.js.map": "/Convenience-Note/static/js/787.f9772654.chunk.js.map"
+    "main.css": "/Rando/static/css/main.9450db12.css",
+    "main.js": "/Rando/static/js/main.b35a0172.js",
+    "static/js/787.f9772654.chunk.js": "/Rando/static/js/787.f9772654.chunk.js",
+    "static/media/user.png": "/Rando/static/media/user.cdec7c088dcf9fb0e2c3.png",
+    "static/media/logo.svg": "/Rando/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Rando/index.html",
+    "main.9450db12.css.map": "/Rando/static/css/main.9450db12.css.map",
+    "main.b35a0172.js.map": "/Rando/static/js/main.b35a0172.js.map",
+    "787.f9772654.chunk.js.map": "/Rando/static/js/787.f9772654.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9450db12.css",
-    "static/js/main.afebccee.js"
+    "static/js/main.b35a0172.js"
   ]
 }
