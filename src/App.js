@@ -1,9 +1,6 @@
-// import logo from './images/logo.svg';
-// import user_icon from './images/user.png'
-// import arrow_btn from "./images/arrow-triangle-button.png"
-// import context from 'require-context.macro'
 import './App.css';
 import React from 'react';
+import { useState } from 'react';
 
 function retrieve_image(name) {
   return process.env.PUBLIC_URL + `/imgs/backend-images/${name}`;
@@ -28,7 +25,7 @@ const DefaultPage = (
   </div>
 );
 
-function RegisterBundleButtons() {
+const RegisterBundleButtons = () => {
   let registered = true;
   let userName = 'Example';
   if(registered){
@@ -51,27 +48,51 @@ function RegisterBundleButtons() {
   };
 }
 
-const NavBar = (
-  <nav className='nav-bar'>
-    <ul>
-      <li className='nav-text'>
-        <a href=''>FAQ</a>
-      </li>
-      <li className='nav-text'>
-        <a href=''>Documentation</a>
-      </li>
-      <li>
-        {RegisterBundleButtons()}
-      </li>
-    </ul>
-  </nav>
-);
+
+const CreatorName = () => {
+  const [ cName, setCName ] = useState('Rand');
+  const handleMouseEnter = () => {
+    setCName('Thanwisit Angsachon')
+  };
+  const handleMouseLeave = () => {
+    setCName('Rand')
+  };
+  return(
+    <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{cName}</span>
+  );
+}
+
+const NavBar = () => {
+  return(
+    <nav className='nav-bar'>
+      <div className='creator-pallet'>
+        Created by&nbsp;
+        <CreatorName />
+        <img src={retrieve_image('')}></img> {/* My YouTube profile*/}
+      </div>
+      <ul>
+        <li className='nav-text'>
+          <a href=''>How to use?</a>
+        </li>
+        <li className='nav-text'>
+          <a href=''>FAQ</a>
+        </li>
+        <li className='nav-text'>
+          <a href=''>Documentation</a>
+        </li>
+        <li>
+          <RegisterBundleButtons />
+        </li>
+      </ul>
+    </nav>
+  );
+}
 
 function App() {
   return (
     <>
       {/* <Image imgName="arrow-triangle-button.png"/> */}
-      {NavBar}
+      <NavBar />
     </>
   );
 }
