@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import { useState } from 'react';
 
@@ -30,11 +29,11 @@ const RegisterBundleButtons = () => {
   let userName = 'Example';
   if(registered){
     return(
-      <div className='user-info'>
-        <img src={retrieve_image("user.png")} alt='user-icon'></img>
-        <label>{userName}</label>
-        <button>
-          <img src={retrieve_image("arrow-triangle-button.png")}></img>
+      <div className='flex flex-row items-center'>
+        <img className='w-9 h-9' src={retrieve_image("user.png")} alt='user-icon'></img>
+        <label className='text-xl font-bold mx-2'>{userName}</label>
+        <button className='h'>
+          <img className='w-4 h-4' src={retrieve_image("arrow-triangle-button.png")}></img>
         </button>
       </div>
     );
@@ -58,18 +57,18 @@ const NavBar = () => {
   };
   return(
     <nav className='nav-bar'>
-      <div className='creator-pallet'>
-        Created by&nbsp;<span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
-        <img src={retrieve_image('rand.png')} width={"30px"} height={"30px"}></img> {/* My YouTube profile*/}
+      <div className='flex flex-row text-2xl items-center'>
+        Created by <span className='font-serif font-bold mx-2' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
+        <img className='w-9 h-9' src={retrieve_image('rand.png')}></img> {/* My YouTube profile*/}
       </div>
       <ul>
-        <li className='nav-text'>
+        <li className='text-2xl text-white'>
           <a href=''>How to use?</a>
         </li>
-        <li className='nav-text'>
+        <li className='text-2xl text-white'>
           <a href=''>FAQ</a>
         </li>
-        <li className='nav-text'>
+        <li className='text-2xl text-white'>
           <a href=''>Documentation</a>
         </li>
         <li>
