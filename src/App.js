@@ -59,23 +59,23 @@ const NavBar = () => {
   return(
     <nav className='nav-bar'>
       <div className='creator-pallet'>
-        Created by&nbsp;<span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
-        <img src={retrieve_image('rand.png')} width={"30px"} height={"30px"}></img> {/* My YouTube profile*/}
+        Created by<span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
+        <img src={retrieve_image('rand.png')}></img> {/* My YouTube profile*/}
       </div>
-      <ul>
-        <li className='nav-text'>
-          <a href=''>How to use?</a>
-        </li>
-        <li className='nav-text'>
-          <a href=''>FAQ</a>
-        </li>
-        <li className='nav-text'>
-          <a href=''>Documentation</a>
-        </li>
-        <li>
-          <RegisterBundleButtons />
-        </li>
-      </ul>
+      <div className='real-nav'>
+        <ul>
+          <li className='nav-text'>
+            <a href=''>How to use?</a>
+          </li>
+          <li className='nav-text'>
+            <a href=''>FAQ</a>
+          </li>
+          <li className='nav-text'>
+            <a href=''>Documentation</a>
+          </li>
+        </ul>
+        <RegisterBundleButtons />
+      </div>
     </nav>
   );
 }
