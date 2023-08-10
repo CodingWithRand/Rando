@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rando Note",
+  "name": "Handy note for everyone",
   "icons": [
     {
-      "src": "imgs/favicon.ico",
+      "src": "imgs/post-it.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "imgs/logo192.png",
+      "src": "imgs/post-it192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "imgs/logo512.png",
+      "src": "imgs/post-it512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

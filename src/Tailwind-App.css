@@ -55,7 +55,7 @@ body{
 
 @layer components{
   .nav-bar {
-    @apply flex-style-1 justify-between bg-neutral-300 py-1.5 pl-5 pr-20;
+    @apply flex-style-1 justify-between bg-neutral-400 py-1.5 pl-5 pr-20;
   }
 
   .nav-bar ul {
@@ -71,9 +71,9 @@ body{
   }
   
   .creator-pallet img, .user-info img{
-    @apply w-10 h-10;
+    @apply rounded-full w-10 h-10;
   }
-  
+
   .creator-pallet span{
     @apply font-itim mx-2;
   } 

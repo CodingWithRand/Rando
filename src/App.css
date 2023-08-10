@@ -589,7 +589,7 @@ video {
 .nav-bar {
   justify-content: space-between;
   --tw-bg-opacity: 1;
-  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
   padding-left: 1.25rem;
@@ -625,6 +625,7 @@ video {
 .creator-pallet img, .user-info img {
   height: 2.5rem;
   width: 2.5rem;
+  border-radius: 9999px;
 }
 
 .creator-pallet span {

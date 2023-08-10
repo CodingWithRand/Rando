@@ -83,7 +83,7 @@ const NavBar = () => {
 function App() {
   return (
     <>
-      {/* <Image imgName="arrow-triangle-button.png"/> */}
+      {/* <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Pixel perfect - Flaticon</a> */}
       <NavBar />
     </>
   );
