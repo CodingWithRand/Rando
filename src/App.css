@@ -588,8 +588,7 @@ video {
 
 .nav-bar {
   justify-content: space-between;
-  --tw-bg-opacity: 1;
-  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
+  background-color: rgb(252 211 77 / 0.9);
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
   padding-left: 1.25rem;
@@ -600,8 +599,8 @@ video {
 }
 
 .nav-bar ul {
-  -webkit-column-gap: 1rem;
-          column-gap: 1rem;
+  -webkit-column-gap: 2.5rem;
+          column-gap: 2.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -661,6 +660,46 @@ video {
   align-items: center;
 }
 
+@-webkit-keyframes arrow-turn{
+  from{
+    rotate: 0deg
+  }
+
+  to{
+    rotate: 180deg
+  }
+}
+
+@keyframes arrow-turn{
+  from{
+    rotate: 0deg
+  }
+
+  to{
+    rotate: 180deg
+  }
+}
+
+@-webkit-keyframes arrow-return{
+  from{
+    rotate: 180deg
+  }
+
+  to{
+    rotate: 0deg
+  }
+}
+
+@keyframes arrow-return{
+  from{
+    rotate: 180deg
+  }
+
+  to{
+    rotate: 0deg
+  }
+}
+
 .nav-btn {
   min-width: 111px;
   border-radius: 0.375rem;
@@ -678,6 +717,24 @@ video {
 
 .user-info button img:hover {
   opacity: 0.5;
+}
+
+.animating-arrow{
+  -webkit-animation: arrow-turn 0.1s;
+          animation: arrow-turn 0.1s;
+}
+
+.arrow{
+  -webkit-animation: arrow-return 0.1s;
+          animation: arrow-return 0.1s;
+}
+
+.neutral{
+  rotate: 0deg;
+}
+
+.rotated{
+  rotate: 180deg;
 }
 
 .sign-up {
@@ -703,11 +760,46 @@ video {
 }
 
 .real-nav {
-  -webkit-column-gap: 1.25rem;
-          column-gap: 1.25rem;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.drop-down {
+  position: absolute;
+  top: 3.25rem;
+  right: 1.625rem;
+  min-width: 160px;
+  border-radius: 0.125rem;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.drop-down-choice {
+  border-bottom-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(212 212 212 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.drop-down-choice:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
+
+.drop-down-choice:last-child {
+  border-bottom-width: 0px;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 /*UPCOMING CUSTOM STYLES*/

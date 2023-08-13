@@ -55,11 +55,11 @@ body{
 
 @layer components{
   .nav-bar {
-    @apply flex-style-1 justify-between bg-neutral-400 py-1.5 pl-5 pr-20;
+    @apply flex-style-1 justify-between bg-amber-300/90 py-1.5 pl-5 pr-20;
   }
 
   .nav-bar ul {
-    @apply flex-style-1 gap-x-4;
+    @apply flex-style-1 gap-x-10;
   }
   
   .nav-bar ul .nav-text{
@@ -94,12 +94,38 @@ body{
     @apply flex-style-2 gap-x-2;
   }
 
+  @keyframes arrow-turn{
+    from{rotate: 0deg}
+    to{rotate: 180deg}
+  }
+
+  @keyframes arrow-return{
+    from{rotate: 180deg}
+    to{rotate: 0deg}
+  }
+
   .nav-btn{
-    @apply rounded-md border-none min-w-registerBtn py-2 text-xl;
+    @apply rounded-md border-none min-w-[111px] py-2 text-xl;
   }
 
   .user-info button img{
     @apply w-4 h-4 hover:opacity-50;
+  }
+
+  .animating-arrow{
+    animation: arrow-turn 0.1s;
+  }
+
+  .arrow{
+    animation: arrow-return 0.1s;
+  }
+
+  .neutral{
+    rotate: 0deg;
+  }
+
+  .rotated{
+    rotate: 180deg;
   }
 
   .sign-up{
@@ -111,7 +137,19 @@ body{
   }
 
   .real-nav{
-    @apply flex-style-1 gap-x-5;
+    @apply flex-style-1 gap-x-8;
+  }
+
+  .drop-down{
+    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-black border-2 rounded-sm;
+  }
+
+  .drop-down-choice{
+    @apply bg-neutral-100 hover:bg-neutral-200 p-2 border-b-2 border-solid border-neutral-300
+  }
+
+  .drop-down-choice:last-child{
+    @apply border-b-0
   }
 }
 

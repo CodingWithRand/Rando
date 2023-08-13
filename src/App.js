@@ -2,6 +2,11 @@ import './App.css';
 import React from 'react';
 import { useState } from 'react';
 
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+
 function retrieve_image(name) {
   return process.env.PUBLIC_URL + `/imgs/backend-images/${name}`;
 };
@@ -28,14 +33,34 @@ const DefaultPage = (
 const RegisterBundleButtons = () => {
   let registered = true;
   let userName = 'Example';
+  const [dropdownState, setDropdownState] = useState({
+    dropdownVisibility: 'none',
+    animationClass: 'neutral'
+  });
+  const dropdownBtn = async () => {
+      setDropdownState(prevState => ({
+        ...prevState,
+        dropdownVisibility: prevState.dropdownVisibility == 'none' ? 'inline-block' : 'none',
+        animationClass: prevState.animationClass == 'neutral' ? 'animating-arrow' : 'arrow'
+      }));
+      await delay(100);
+      setDropdownState(prevState => ({
+        ...prevState,
+        animationClass: prevState.animationClass == 'animating-arrow' ? 'rotated' : 'neutral' 
+      }))
+  };
   if(registered){
     return(
       <div className='user-info'>
         <img src={retrieve_image("user.png")} alt='user-icon'></img>
         <label>{userName}</label>
-        <button>
-          <img src={retrieve_image("arrow-triangle-button.png")}></img>
+        <button onClick={dropdownBtn}>
+          <img className={dropdownState.animationClass} src={retrieve_image("arrow-triangle-button.png")}></img>
         </button>
+        <div className='drop-down' style={{display: dropdownState.dropdownVisibility}}>
+          <div className='drop-down-choice choice-1'>Theme</div>
+          <div className='drop-down-choice sub-choice-1-1'>Light</div>
+        </div>
       </div>
     );
   }else{
@@ -50,12 +75,8 @@ const RegisterBundleButtons = () => {
 
 const NavBar = () => {
   const [ creatorName, setCreatorName ] = useState('Rand');
-  const handleMouseEnter = () => {
-    setCreatorName('Thanwisit Angsachon')
-  };
-  const handleMouseLeave = () => {
-    setCreatorName('Rand')
-  };
+  const handleMouseEnter = () => setCreatorName('Thanwisit Angsachon');
+  const handleMouseLeave = () => setCreatorName('Rand');
   return(
     <nav className='nav-bar'>
       <div className='creator-pallet'>

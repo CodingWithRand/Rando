@@ -1,14 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontFamily: {
-      'itim': ['Itim', 'sans']
+    extend: {
+      fontFamily: {
+        'itim': ['Itim', 'sans']
+      },
     },
-    minWidth: {
-      'registerBtn': '111px'
-    },
-    extend: {},
   },
   plugins: [],
 }
