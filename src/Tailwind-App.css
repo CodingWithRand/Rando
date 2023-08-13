@@ -141,15 +141,11 @@ body{
   }
 
   .drop-down{
-    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-black border-2 rounded-sm;
+    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-neutral-400 border-2 rounded-sm;
   }
 
   .drop-down-choice{
-    @apply bg-neutral-100 hover:bg-neutral-200 p-2 border-b-2 border-solid border-neutral-300
-  }
-
-  .drop-down-choice:last-child{
-    @apply border-b-0
+    @apply bg-neutral-100 hover:bg-neutral-200 p-2 border-solid border-neutral-300
   }
 }
 

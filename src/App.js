@@ -34,13 +34,20 @@ const RegisterBundleButtons = () => {
   let registered = true;
   let userName = 'Example';
   const [dropdownState, setDropdownState] = useState({
-    dropdownVisibility: 'none',
+    dropdownVisibility: {
+      main: 'none',
+      sub_1: 'none'
+    },
     animationClass: 'neutral'
   });
   const dropdownBtn = async () => {
       setDropdownState(prevState => ({
         ...prevState,
-        dropdownVisibility: prevState.dropdownVisibility == 'none' ? 'inline-block' : 'none',
+        dropdownVisibility: {
+          ...prevState.dropdownVisibility,
+          main: prevState.dropdownVisibility.main == 'none' ? 'inline-block' : 'none',
+          sub_1: prevState.dropdownVisibility.sub_1 == 'none' ? 'inline-block' : 'none'
+        },
         animationClass: prevState.animationClass == 'neutral' ? 'animating-arrow' : 'arrow'
       }));
       await delay(100);
@@ -57,9 +64,9 @@ const RegisterBundleButtons = () => {
         <button onClick={dropdownBtn}>
           <img className={dropdownState.animationClass} src={retrieve_image("arrow-triangle-button.png")}></img>
         </button>
-        <div className='drop-down' style={{display: dropdownState.dropdownVisibility}}>
-          <div className='drop-down-choice choice-1'>Theme</div>
-          <div className='drop-down-choice sub-choice-1-1'>Light</div>
+        <div className='drop-down' style={{display: dropdownState.dropdownVisibility.main}}>
+          <div className='drop-down-choice choice-1' onClick={dropdownBtn}>Theme</div>
+          <div className='drop-down-choice sub-choice-1-1' style={{display: dropdownState.dropdownVisibility.sub_1}}>Light</div>
         </div>
       </div>
     );

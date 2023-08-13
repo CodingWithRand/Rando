@@ -776,11 +776,10 @@ video {
   border-width: 2px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-color: rgb(163 163 163 / var(--tw-border-opacity));
 }
 
 .drop-down-choice {
-  border-bottom-width: 2px;
   border-style: solid;
   --tw-border-opacity: 1;
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
@@ -792,10 +791,6 @@ video {
 .drop-down-choice:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-
-.drop-down-choice:last-child {
-  border-bottom-width: 0px;
 }
 
 .inline-block {
