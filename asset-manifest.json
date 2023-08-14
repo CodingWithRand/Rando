@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Rando/static/css/main.e537a853.css",
-    "main.js": "/Rando/static/js/main.86f25b77.js",
+    "main.css": "/Rando/static/css/main.1aba8d30.css",
+    "main.js": "/Rando/static/js/main.0ec16deb.js",
     "static/js/787.f9772654.chunk.js": "/Rando/static/js/787.f9772654.chunk.js",
     "index.html": "/Rando/index.html",
-    "main.e537a853.css.map": "/Rando/static/css/main.e537a853.css.map",
-    "main.86f25b77.js.map": "/Rando/static/js/main.86f25b77.js.map",
+    "main.1aba8d30.css.map": "/Rando/static/css/main.1aba8d30.css.map",
+    "main.0ec16deb.js.map": "/Rando/static/js/main.0ec16deb.js.map",
     "787.f9772654.chunk.js.map": "/Rando/static/js/787.f9772654.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e537a853.css",
-    "static/js/main.86f25b77.js"
+    "static/css/main.1aba8d30.css",
+    "static/js/main.0ec16deb.js"
   ]
 }
