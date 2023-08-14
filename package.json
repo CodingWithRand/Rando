@@ -13,6 +13,8 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "require-context.macro": "^1.2.2",
+    "styled-components": "^6.0.7",
+    "tar": "^6.1.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

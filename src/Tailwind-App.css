@@ -51,11 +51,14 @@ body{
 
 @layer base{
   /*Default Styles*/
+  body{
+    @apply bg-amber-200/50 dark:bg-neutral-800/90
+  }
 }
 
 @layer components{
   .nav-bar {
-    @apply flex-style-1 justify-between bg-amber-300/90 py-1.5 pl-5 pr-20;
+    @apply flex-style-1 justify-between bg-amber-300/90 py-1.5 pl-5 pr-20 dark:bg-neutral-900;
   }
 
   .nav-bar ul {
@@ -67,7 +70,7 @@ body{
   }
 
   .creator-pallet{
-    @apply flex-style-1 text-2xl;
+    @apply flex-style-1 text-2xl dark:text-white;
   }
   
   .creator-pallet img, .user-info img{
@@ -79,7 +82,7 @@ body{
   } 
 
   .user-info{
-    @apply flex-style-1;
+    @apply flex-style-1 dark:text-white;
   }
   
   .user-info label{
@@ -141,11 +144,31 @@ body{
   }
 
   .drop-down{
-    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-neutral-400 border-2 rounded-sm;
+    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-amber-400 border-2 rounded-sm bg-[#fbbf24bf] dark:border-[#101010] dark:bg-neutral-950;
   }
 
-  .drop-down-choice{
-    @apply bg-neutral-100 hover:bg-neutral-200 p-2 border-solid border-neutral-300
+  .dd{
+    @apply cursor-default border-b-2 border-solid border-amber-400/50 dark:border-[#101010];
+  }
+
+  .dd.choice, .dd.sub-choice{
+    @apply bg-amber-200 p-2 hover:bg-amber-300 dark:bg-neutral-800 dark:hover:bg-neutral-900;
+  }
+
+  .dd.choice{
+    @apply flex-style-1 gap-x-2
+  }
+
+  .dd.choice img{
+    @apply w-7 h-7
+  }
+
+  .drop-down .dd.choice:last-child:not(.sub-choices-container .dd.sub-choice){
+    @apply border-b-0;
+  }
+
+  .dd.sub-choice{
+    @apply ml-4;
   }
 }
 
@@ -157,6 +180,10 @@ body{
   
   .flex-style-2{
     @apply flex-style-1 justify-center;
+  }
+
+  .size-full{
+    @apply w-full h-full;
   }
   /*UPCOMING CUSTOM STYLES*/
 }
