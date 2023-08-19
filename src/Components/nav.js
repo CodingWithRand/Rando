@@ -8,11 +8,17 @@ const RegisterBundleButtons = () => {
   let userName = 'Example';
   const [dropdownState, setDropdownState] = useState({
     dropdownVisibility: {
-      main: 'none',
+      main: {
+        display: 'none',
+        event: 'close'
+      },
       components: {
         'sub-choices': 'none'
       },
-      animationClass: 'neutral'
+      animationClass: {
+        btn: 'neutral',
+        main: 'hid-den'
+      }
     }
   });
   const dropdownFuncs = {
@@ -22,17 +28,27 @@ const RegisterBundleButtons = () => {
           ...prevState,
           dropdownVisibility: {
             ...prevState.dropdownVisibility,
-            main: prevState.dropdownVisibility.main == 'none' ? 'inline-block' : 'none',
-            animationClass: prevState.dropdownVisibility.animationClass == 'neutral' ? 'animating-arrow' : 'arrow'
+            main: {
+              ...prevState.dropdownVisibility.main.display,
+              display: prevState.dropdownVisibility.main.display = (() => { 
+                if(prevState.dropdownVisibility.main.event === "close")
+                {
+                  prevState.dropdownVisibility.main.event = "open";
+                  return 'inline-block';
+                }
+                else if(prevState.dropdownVisibility.main.event === "open")
+                {
+                  prevState.dropdownVisibility.main.event = "close";
+                  return 'none';
+                }
+              })(),
+            },
+            animationClass: {
+              ...prevState.dropdownVisibility.animationClass,
+              btn: prevState.dropdownVisibility.animationClass.btn === 'neutral' ? 'rotated' : 'neutral',
+              main: prevState.dropdownVisibility.animationClass.main === 'hid-den' ? 'show' : 'hid-den'
+            }
           },
-        }));
-        await funcs.delay(100);
-        setDropdownState(prevState => ({
-          ...prevState,
-          dropdownVisibility: {
-            ...prevState.dropdownVisibility,
-            animationClass: prevState.dropdownVisibility.animationClass == 'animating-arrow' ? 'rotated' : 'neutral' 
-          }
         }));
       },
       choices: (additionState) => {
@@ -43,7 +59,7 @@ const RegisterBundleButtons = () => {
               ...prevState.dropdownVisibility,
               components: {
                 ...prevState.dropdownVisibility.components,
-                [additionState]: prevState.dropdownVisibility.components[additionState] == 'none' ? 'block' : 'none'
+                [additionState]: prevState.dropdownVisibility.components[additionState] === 'none' ? 'block' : 'none'
               }
             }
           }));
@@ -63,16 +79,15 @@ const RegisterBundleButtons = () => {
       displayTheme['display-theme'] = t;
     }
   }
-
   if(registered){
     return(
       <div className='user-info'>
         <img src={funcs.retrieve_image("user.png")} alt='user-icon'></img>
         <label>{userName}</label>
         <button onClick={dropdownFuncs.visibilityFunc.main}>
-          <img className={dropdownState.dropdownVisibility.animationClass} src={funcs.retrieve_image("arrow-triangle-button.png")} alt='Dropdown'></img>
+          <img className={dropdownState.dropdownVisibility.animationClass.btn} src={funcs.retrieve_image("arrow-triangle-button.png")} alt='Dropdown'></img>
         </button>
-        <div className='drop-down' style={{display: dropdownState.dropdownVisibility.main}}>
+        <div className={`drop-down ${dropdownState.dropdownVisibility.animationClass.main}`} style={{display: dropdownState.dropdownVisibility.main}}>
           <div className='dd choice' id='1' onMouseEnter={choices_func} onMouseLeave={choices_func}><img src={funcs.retrieve_image("mode.png")}></img>Theme</div>
           <div className='sub-choices-container' onMouseEnter={choices_func} onMouseLeave={choices_func}>
             <div className='dd sub-choice' id='1-1' onClick={() => change_theme('light')} style={{display: dropdownState.dropdownVisibility.components['sub-choices']}}>Light</div>

@@ -97,39 +97,16 @@ body{
     @apply flex-style-2 gap-x-2;
   }
 
-  @keyframes arrow-turn{
-    from{rotate: 0deg}
-    to{rotate: 180deg}
-  }
-
-  @keyframes arrow-return{
-    from{rotate: 180deg}
-    to{rotate: 0deg}
-  }
-
   .nav-btn{
     @apply rounded-md border-none min-w-[111px] py-2 text-xl;
   }
 
   .user-info button img{
-    @apply w-4 h-4 hover:opacity-50;
+    @apply w-4 h-4 transition-transform duration-100 ease-in-out hover:opacity-50;
   }
 
-  .animating-arrow{
-    animation: arrow-turn 0.1s;
-  }
-
-  .arrow{
-    animation: arrow-return 0.1s;
-  }
-
-  .neutral{
-    rotate: 0deg;
-  }
-
-  .rotated{
-    rotate: 180deg;
-  }
+  .neutral{transform: rotate(0deg);}
+  .rotated{transform: rotate(180deg);}
 
   .sign-up{
     @apply bg-cyan-300 text-white hover:bg-cyan-400;
@@ -145,6 +122,17 @@ body{
 
   .drop-down{
     @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-amber-400 border-2 rounded-sm bg-[#fbbf24bf] dark:border-[#101010] dark:bg-neutral-950;
+  }
+
+  .hid-den{
+    /* @apply transition-opacity duration-1000 ease-in-out; */
+    transition: opacity 1s;
+    opacity: 0;
+  }
+  .show{
+    /* @apply transition-opacity duration-1000 ease-in-out; */
+    transition: opacity 1s;
+    opacity: 1;
   }
 
   .dd{
@@ -185,6 +173,7 @@ body{
   .size-full{
     @apply w-full h-full;
   }
+
   /*UPCOMING CUSTOM STYLES*/
 }
 

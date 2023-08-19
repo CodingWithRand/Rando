@@ -6,9 +6,9 @@ function delay(ms) {
   
 function retrieve_image(name, exception) {
     if (exception) return process.env.PUBLIC_URL + `/imgs/backend-images/${name}`;
-    if (displayTheme['display-theme'] == 'light'){
+    if (displayTheme['display-theme'] === 'light'){
         return process.env.PUBLIC_URL + `/imgs/backend-images/light-${name}`;
-    }else if (displayTheme['display-theme'] == 'dark'){
+    }else if (displayTheme['display-theme'] === 'dark'){
         return process.env.PUBLIC_URL + `/imgs/backend-images/dark-${name}`;
     }
 };
