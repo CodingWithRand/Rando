@@ -110,25 +110,19 @@ const RegisterBundleButtons = () => {
   
 const NavBar = () => {
   const [ creatorName, setCreatorName ] = useState('Rand');
-  const handleMouseEnter = () => setCreatorName('Thanwisit Angsachon');
-  const handleMouseLeave = () => setCreatorName('Rand');
+  const handleMouseEnter = () => {setCreatorName('Thanwisit Angsachon'); console.log('a')};
+  const handleMouseLeave = () => {setCreatorName('Rand'); console.log('b')};
   return(
     <nav className='nav-bar'>
       <div className='creator-pallet'>
-        Created by<span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
+        <span style={{zIndex: 2}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
         <img src={funcs.retrieve_image('rand.png', true)} alt="My iconic branding on the internet"></img> {/* My YouTube profile*/}
       </div>
       <div className='real-nav'>
         <ul>
-          <li className='nav-text'>
-            <a href=''>How to use?</a>
-          </li>
-          <li className='nav-text'>
-            <a href=''>FAQ</a>
-          </li>
-          <li className='nav-text'>
-            <a href=''>Documentation</a>
-          </li>
+          <li><a className='nav-text' href=''>How to use?</a></li>
+          <li><a className='nav-text' href=''>FAQ</a></li>
+          <li><a className='nav-text' href=''>Documentation</a></li>
         </ul>
         <RegisterBundleButtons />
       </div>

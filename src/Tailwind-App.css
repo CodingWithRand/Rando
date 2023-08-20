@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Start Default Styles */
+/* Start Initial Styles */
 .App {
   text-align: center;
 }
@@ -46,7 +46,7 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* End Default Styles */
+/* End Initial Styles */
 
 
 @layer base{
@@ -54,55 +54,71 @@ body{
   body{
     @apply bg-amber-200/50 dark:bg-neutral-800/90
   }
+  html, body, #root{
+    height: 100%;
+  }
 }
 
 @layer components{
   .nav-bar {
-    @apply flex-style-1 justify-between bg-amber-300/90 py-1.5 pl-5 pr-20 dark:bg-neutral-900;
+    @apply absolute i-flex-col w-[25%] z-[1] h-full bg-amber-300/90 mh:z-0 mh:i-flex-row mh:items-center mh:w-full mh:h-max mh:justify-between dark:bg-neutral-900;
   }
 
-  .nav-bar ul {
-    @apply flex-style-1 gap-x-10;
+  .real-nav{
+    @apply i-flex-col justify-between bg-amber-400/70 h-full mh:i-flex-row mh:justify-normal mh:items-center mh:gap-x-8 mh:pr-20 mh:pl-5;
+  }
+
+  .real-nav ul {
+    @apply i-flex-col my-5 mh:my-0 mh:i-flex-row mh:items-center mh:gap-x-10;
   }
   
-  .nav-bar ul .nav-text{
-    @apply text-2xl text-white;
+  .real-nav ul .nav-text{
+    @apply block text-white text-2xl py-4 w-full text-center border-b-2 border-amber-500/50 hover:bg-amber-500/40 mh:py-[0.63rem] mh:border-b-0 mh:hover:bg-inherit;
   }
 
   .creator-pallet{
-    @apply flex-style-1 text-2xl dark:text-white;
+    @apply i-flex-col-reverse items-center after:content-['Created_by'] my-4 mh:my-0 after:text-xl mh:py-[0.4rem] mh:px-5 mh:before:content-['Created_by'] mh:after:content-none mh:i-flex-row mh:items-center mh:text-2xl dark:text-white;
   }
   
-  .creator-pallet img, .user-info img{
-    @apply rounded-full w-10 h-10;
+  .creator-pallet img{
+    @apply rounded-full w-20 h-20 my-2 mh:my-0 mh:w-10 mh:h-10;
   }
 
   .creator-pallet span{
-    @apply font-itim mx-2;
+    @apply font-itim mx-1 text-xl mh:mx-2 mh:text-2xl;
   } 
 
   .user-info{
-    @apply flex-style-1 dark:text-white;
+    @apply i-flex-row justify-evenly items-center pb-3 mh:pb-0 dark:text-white;
+  }
+  
+  .user-info img{
+    @apply rounded-full w-8 h-8 mh:w-10 mh:h-10
+  }
+
+  .user-info button img{
+    @apply w-4 h-4 transition-transform duration-100 ease-in-out hover:opacity-50;
+    
   }
   
   .user-info label{
-    @apply text-xl font-bold mx-2;
+    @apply font-bold text-2xl mh:text-xl mh:mx-2;
   }
   
   .user-info button{
     @apply cursor-auto;
   }
 
+  @media only screen and (max-width: 1180px) {
+    .user-info button img{rotate: -90deg;}
+  }
+
   .btn-bundle{
-    @apply flex-style-2 gap-x-2;
+    @apply i-flex-row justify-center gap-x-2;
   }
 
   .nav-btn{
     @apply rounded-md border-none min-w-[111px] py-2 text-xl;
-  }
-
-  .user-info button img{
-    @apply w-4 h-4 transition-transform duration-100 ease-in-out hover:opacity-50;
   }
 
   .neutral{transform: rotate(0deg);}
@@ -116,39 +132,33 @@ body{
     @apply bg-neutral-100 hover:bg-neutral-200;
   }
 
-  .real-nav{
-    @apply flex-style-1 gap-x-8;
-  }
-
   .drop-down{
-    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-amber-400 border-2 rounded-sm bg-[#fbbf24bf] dark:border-[#101010] dark:bg-neutral-950;
+    @apply absolute top-[3.25rem] min-w-[160px] right-[1.625rem] border-solid border-amber-500 border-2 rounded-sm bg-amber-500 dark:border-[#101010] dark:bg-neutral-950;
   }
 
   .hid-den{
-    /* @apply transition-opacity duration-1000 ease-in-out; */
-    transition: opacity 1s;
+    @apply transition-opacity duration-1000 ease-in-out;
     opacity: 0;
   }
   .show{
-    /* @apply transition-opacity duration-1000 ease-in-out; */
-    transition: opacity 1s;
+    @apply transition-opacity duration-1000 ease-in-out;
     opacity: 1;
   }
 
   .dd{
-    @apply cursor-default border-b-2 border-solid border-amber-400/50 dark:border-[#101010];
+    @apply cursor-default border-b-2 border-solid border-amber-500/50 dark:border-[#101010];
   }
 
   .dd.choice, .dd.sub-choice{
-    @apply bg-amber-200 p-2 hover:bg-amber-300 dark:bg-neutral-800 dark:hover:bg-neutral-900;
+    @apply bg-amber-300 p-2 hover:bg-amber-400 dark:bg-neutral-800 dark:hover:bg-neutral-900;
   }
 
   .dd.choice{
-    @apply flex-style-1 gap-x-2
+    @apply i-flex-row items-center gap-x-2;
   }
 
   .dd.choice img{
-    @apply w-7 h-7
+    @apply w-7 h-7;
   }
 
   .drop-down .dd.choice:last-child:not(.sub-choices-container .dd.sub-choice){
@@ -162,12 +172,16 @@ body{
 
 @layer utilities{
 
-  .flex-style-1{
-    @apply flex flex-row items-center;
+  .i-flex-row{
+    @apply flex flex-row;
   }
-  
-  .flex-style-2{
-    @apply flex-style-1 justify-center;
+
+  .i-flex-col{
+    @apply flex flex-col;
+  }
+
+  .i-flex-col-reverse{
+    @apply flex flex-col-reverse;
   }
 
   .size-full{

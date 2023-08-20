@@ -7,8 +7,11 @@ module.exports = {
       fontFamily: {
         'itim': ['Itim', 'sans']
       },
+      screens: {
+        'mh': '1180px'
+      },
     },
   },
-  plugins: [],
+  plugins: []
 }
 
