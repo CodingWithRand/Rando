@@ -602,7 +602,7 @@ html, body, #root{
   position: absolute;
   z-index: 1;
   height: 100%;
-  width: 25%;
+  width: 40%;
   background-color: rgb(252 211 77 / 0.9);
   display: flex;
   flex-direction: column;
@@ -611,6 +611,12 @@ html, body, #root{
 :is(.dark .nav-bar) {
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 640px) {
+  .nav-bar {
+    width: 35%;
+  }
 }
 
 @media (min-width: 1180px) {
@@ -626,12 +632,23 @@ html, body, #root{
   }
 }
 
+@media (min-width: 768px) and (max-width: 1180px) {
+  .nav-bar {
+    width: 25%;
+  }
+}
+
 .real-nav {
   height: 100%;
   justify-content: space-between;
   background-color: rgb(251 191 36 / 0.7);
   display: flex;
   flex-direction: column;
+}
+
+:is(.dark .real-nav) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 15 15 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 1180px) {
@@ -674,14 +691,24 @@ html, body, #root{
   padding-top: 1rem;
   padding-bottom: 1rem;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .real-nav ul .nav-text:hover {
   background-color: rgb(245 158 11 / 0.4);
+}
+
+:is(.dark .real-nav ul .nav-text) {
+  --tw-border-opacity: 1;
+  border-color: rgb(20 20 20 / var(--tw-border-opacity));
+}
+
+:is(.dark .real-nav ul .nav-text:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10 10 10 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 1180px) {
@@ -693,6 +720,13 @@ html, body, #root{
 
   .real-nav ul .nav-text:hover {
     background-color: inherit;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  .real-nav ul .nav-text {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -823,8 +857,8 @@ html, body, #root{
 }
 
 .user-info label {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   font-weight: 700;
 }
 
@@ -834,6 +868,13 @@ html, body, #root{
     margin-right: 0.5rem;
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  .user-info label {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -899,9 +940,11 @@ html, body, #root{
 
 .drop-down {
   position: absolute;
-  top: 3.25rem;
-  right: 1.625rem;
-  min-width: 160px;
+  bottom: 0px;
+  left: 40vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 0.125rem;
   border-width: 2px;
   border-style: solid;
@@ -916,6 +959,27 @@ html, body, #root{
   border-color: rgb(16 16 16 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(10 10 10 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 640px) {
+  .drop-down {
+    left: 35vw;
+  }
+}
+
+@media (min-width: 1180px) {
+  .drop-down {
+    top: 3.25rem;
+    right: 1.625rem;
+    left: auto;
+    min-width: 160px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  .drop-down {
+    left: 25vw;
+  }
 }
 
 .hid-den {

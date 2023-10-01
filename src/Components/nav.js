@@ -110,8 +110,16 @@ const RegisterBundleButtons = () => {
   
 const NavBar = () => {
   const [ creatorName, setCreatorName ] = useState('Rand');
+  const [ deviceStyle, setDeviceStyle ] = useState('pc')
   const handleMouseEnter = () => {setCreatorName('Thanwisit Angsachon'); console.log('a')};
   const handleMouseLeave = () => {setCreatorName('Rand'); console.log('b')};
+
+  let deviceVP = window.innerWidth
+  useEffect(() => {
+    if(deviceVP > 1180) setDeviceStyle('pc');
+    else setDeviceStyle('mobile')
+  }, [deviceStyle, deviceVP])
+
   return(
     <nav className='nav-bar'>
       <div className='creator-pallet'>

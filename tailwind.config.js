@@ -8,7 +8,8 @@ module.exports = {
         'itim': ['Itim', 'sans']
       },
       screens: {
-        'mh': '1180px'
+        'fs': '1180px',
+        'as': {'min': '768px', 'max': '1180px'}
       },
     },
   },
