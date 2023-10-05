@@ -1,8 +1,13 @@
 import displayTheme from './theme.json'
 
-function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-};
+function async_delay(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); };
+function sync_delay(ms) {
+    const start = Date.now();
+    let now = start;
+    while (now - start < ms) {
+        now = Date.now();
+    }
+}
   
 function retrieve_image(name, exception) {
     if (exception) return process.env.PUBLIC_URL + `/imgs/backend-images/${name}`;
@@ -14,7 +19,8 @@ function retrieve_image(name, exception) {
 };
 
 const functions = {
-    delay,
+    async_delay,
+    sync_delay,
     retrieve_image
 }
 

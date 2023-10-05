@@ -1,0 +1,156 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .nav-bar {
+      @apply w-[40vw] sm:w-[35vw] as:w-[25vw] fs:h-max fs:w-full h-full absolute i-flex-row z-[1];
+    }
+    .nav-container{
+      @apply i-flex-col justify-between h-full w-full bg-amber-300/90 dark:bg-neutral-900 fs:z-0 fs:i-flex-row fs:items-center 
+    }
+    .real-nav{
+      @apply overflow-auto i-flex-col justify-between bg-amber-400/70 h-full dark:bg-[rgb(15,15,15)] fs:i-flex-row fs:justify-normal fs:items-center fs:gap-x-8 fs:pr-20 fs:pl-5;
+    }
+  
+    .real-nav ul {
+      @apply i-flex-col my-5 fs:my-0 fs:i-flex-row fs:items-center fs:gap-x-10;
+    }
+    
+    .real-nav ul .nav-text{
+      @apply block text-white text-lg hover:bg-amber-500/40 py-4 w-full text-center border-b-2 border-amber-500/50 dark:border-[rgb(20,20,20)] dark:hover:bg-[rgb(10,10,10)] as:text-2xl fs:py-[0.63rem] fs:border-b-0 fs:hover:bg-inherit;
+    }
+  
+    .creator-pallet{
+      @apply i-flex-col-reverse items-center after:content-['Created_by'] my-4 fs:my-0 after:text-xl fs:px-5 fs:before:content-['Created_by'] fs:after:content-none fs:i-flex-row fs:items-center fs:text-2xl dark:text-white;
+    }
+    
+    .creator-pallet img{
+      @apply rounded-full border-solid border-2 border-black w-20 h-20 my-2 fs:my-0 fs:w-10 fs:h-10;
+    }
+  
+    .creator-pallet span{
+      @apply font-itim mx-1 text-xl fs:mx-2 fs:text-2xl;
+    } 
+  
+    .user-info{
+      @apply i-flex-row justify-evenly items-center pb-3 fs:pb-0 dark:text-white;
+    }
+    
+    .user-info img{
+      @apply rounded-full w-8 h-8 fs:w-10 fs:h-10
+    }
+  
+    .user-info button img{
+      @apply w-4 h-4 transition-transform duration-100 ease-in-out hover:opacity-50;
+      
+    }
+    
+    .user-info label{
+      @apply font-bold text-lg as:text-2xl fs:text-xl fs:mx-2;
+    }
+    
+    .user-info button{
+      @apply cursor-auto;
+    }
+  
+    @media only screen and (max-width: 1180px) {
+      .user-info button img{rotate: -90deg;}
+    }
+  
+    .btn-bundle{
+      @apply i-flex-row justify-center gap-x-2;
+    }
+  
+    .nav-btn{
+      @apply rounded-md border-none min-w-[111px] py-2 text-xl;
+    }
+  
+    .neutral{transform: rotate(0deg);}
+    .rotated{transform: rotate(180deg);}
+  
+    .sign-up{
+      @apply bg-cyan-300 text-white hover:bg-cyan-400;
+    }
+   
+    .log-in{
+      @apply bg-neutral-100 hover:bg-neutral-200;
+    }
+  
+    .drop-down{
+      @apply absolute bottom-0 left-[36.3vw] w-max overflow-auto sm:left-[31.4vw] as:left-[21.5vw] h-fit border-solid border-amber-500 border-2 rounded-sm bg-amber-500 dark:border-[#101010] dark:bg-neutral-950 fs:top-[3rem] fs:min-w-[160px] fs:right-[1.625rem] fs:left-auto;
+    }
+  
+    .hid-den{
+      @apply transition-opacity duration-1000 ease-in-out;
+      opacity: 0;
+    }
+    .show{
+      @apply transition-opacity duration-1000 ease-in-out;
+      opacity: 1;
+    }
+  
+    .dd{
+      @apply cursor-default border-b-2 border-solid border-amber-500/50 dark:border-[#101010];
+    }
+  
+    .dd.choice, .dd.sub-choice{
+      @apply bg-amber-300 p-2 hover:bg-amber-400 dark:bg-neutral-800 dark:hover:bg-neutral-900;
+    }
+  
+    .dd.choice{
+      @apply i-flex-row items-center gap-x-2;
+    }
+  
+    .dd.choice img{
+      @apply w-7 h-7;
+    }
+  
+    .drop-down .dd.choice:last-child:not(.sub-choices-container .dd.sub-choice){
+      @apply border-b-0;
+    }
+  
+    .dd.sub-choice{
+      @apply ml-4;
+    }
+  
+    .mobile{
+      @apply translate-x-[-91%] sm:translate-x-[-90%] transition-transform duration-100 fs:transition-none fs:translate-x-0 fs:translate-x-0
+    }
+  
+    .toggle-nav{
+      @apply translate-x-0 transition-transform duration-100 fs:transition-none
+    }
+  
+    .nav-bar-toggle-event{
+      @apply flex items-center w-[4vw] h-full bg-gradient-to-r from-white/50 to-white/0 dark:from-neutral-800/50 dark:to-neutral-800/0 
+    }
+  
+    .nav-bar-toggle-event img.toggle-nav{
+      @apply rotate-[90deg] translate-x-0
+    }
+  
+    .nav-bar-toggle-event img.mobile{
+      @apply rotate-[-90deg] translate-x-0
+    }
+  }
+  
+  @layer utilities{
+  
+    .i-flex-row{
+      @apply flex flex-row;
+    }
+  
+    .i-flex-col{
+      @apply flex flex-col;
+    }
+  
+    .i-flex-col-reverse{
+      @apply flex flex-col-reverse;
+    }
+  
+    .size-full{
+      @apply w-full h-full;
+    }
+  
+    /*UPCOMING CUSTOM STYLES*/
+  }

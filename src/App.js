@@ -1,6 +1,6 @@
-import './App.css';
-import NavBar from './Components/nav';
-import funcs from './Components/functions'
+import './css/use/app.css';
+import NavBar from './comps/nav';
+import funcs from './comps/functions'
 
 const DefaultPage = (
   <div className="App">

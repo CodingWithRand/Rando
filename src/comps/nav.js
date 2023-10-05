@@ -1,7 +1,7 @@
 import funcs from './functions'
 import displayTheme from './theme.json'
 import { useEffect, useState } from 'react';
-
+import '../css/use/nav.css'
 
 const RegisterBundleButtons = () => {
   let registered = true;
@@ -17,7 +17,6 @@ const RegisterBundleButtons = () => {
       },
       animationClass: {
         btn: 'neutral',
-        main: 'hid-den'
       }
     }
   });
@@ -29,24 +28,16 @@ const RegisterBundleButtons = () => {
           dropdownVisibility: {
             ...prevState.dropdownVisibility,
             main: {
-              ...prevState.dropdownVisibility.main.display,
-              display: prevState.dropdownVisibility.main.display = (() => { 
-                if(prevState.dropdownVisibility.main.event === "close")
-                {
-                  prevState.dropdownVisibility.main.event = "open";
-                  return 'inline-block';
-                }
-                else if(prevState.dropdownVisibility.main.event === "open")
-                {
-                  prevState.dropdownVisibility.main.event = "close";
-                  return 'none';
-                }
-              })(),
+              ...prevState.dropdownVisibility.main,
+              event: prevState.dropdownVisibility.main.event === 'close' ? 'open' : 'close',
+              display: (() => {
+                if(prevState.dropdownVisibility.main.event === 'close') return 'inline-block'
+                else if(prevState.dropdownVisibility.main.event === 'open') return 'none'
+              })()
             },
             animationClass: {
               ...prevState.dropdownVisibility.animationClass,
               btn: prevState.dropdownVisibility.animationClass.btn === 'neutral' ? 'rotated' : 'neutral',
-              main: prevState.dropdownVisibility.animationClass.main === 'hid-den' ? 'show' : 'hid-den'
             }
           },
         }));
@@ -87,14 +78,20 @@ const RegisterBundleButtons = () => {
         <button onClick={dropdownFuncs.visibilityFunc.main}>
           <img className={dropdownState.dropdownVisibility.animationClass.btn} src={funcs.retrieve_image("arrow-triangle-button.png")} alt='Dropdown'></img>
         </button>
-        <div className={`drop-down ${dropdownState.dropdownVisibility.animationClass.main}`} style={{display: dropdownState.dropdownVisibility.main}}>
-          <div className='dd choice' id='1' onMouseEnter={choices_func} onMouseLeave={choices_func}><img src={funcs.retrieve_image("mode.png")}></img>Theme</div>
+        <div className="drop-down" style={{display: dropdownState.dropdownVisibility.main.display}}>
+          <div className='dd choice' id='1' onMouseEnter={choices_func} onMouseLeave={choices_func}>
+            <img src={funcs.retrieve_image("mode.png")}></img>
+            <div>Theme</div>
+          </div>
           <div className='sub-choices-container' onMouseEnter={choices_func} onMouseLeave={choices_func}>
             <div className='dd sub-choice' id='1-1' onClick={() => change_theme('light')} style={{display: dropdownState.dropdownVisibility.components['sub-choices']}}>Light</div>
             <div className='dd sub-choice' id='1-2' onClick={() => change_theme('dark')} style={{display: dropdownState.dropdownVisibility.components['sub-choices']}}>Dark</div>
             <div className='dd sub-choice' id='1-3' onClick={() => window.location.replace('')} style={{display: dropdownState.dropdownVisibility.components['sub-choices']}}>Custom...</div>
           </div>
-          <div className='dd choice' id='2'><img src={funcs.retrieve_image("gear.png")}></img>Settings</div>
+          <div className='dd choice' id='2'>
+            <img src={funcs.retrieve_image("gear.png")}></img>
+            <div>Settings</div>
+          </div>
         </div>
       </div>
     );
@@ -110,31 +107,54 @@ const RegisterBundleButtons = () => {
   
 const NavBar = () => {
   const [ creatorName, setCreatorName ] = useState('Rand');
-  const [ deviceStyle, setDeviceStyle ] = useState('pc')
-  const handleMouseEnter = () => {setCreatorName('Thanwisit Angsachon'); console.log('a')};
-  const handleMouseLeave = () => {setCreatorName('Rand'); console.log('b')};
+  const [ deviceStyle, setDeviceStyle ] = useState('pc');
+  const handleMouseEnter = () => {setCreatorName('Thanwisit Angsachon');};
+  const handleMouseLeave = () => {setCreatorName('Rand');};
 
-  let deviceVP = window.innerWidth
   useEffect(() => {
-    if(deviceVP > 1180) setDeviceStyle('pc');
-    else setDeviceStyle('mobile')
-  }, [deviceStyle, deviceVP])
+    const handleResize = () => {
+      if (window.innerWidth > 1180) setDeviceStyle('pc');
+      else if(deviceStyle === 'pc') setDeviceStyle('mobile');
+    };
+  
+    window.addEventListener('resize', handleResize);
+    handleResize();
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [window.innerWidth])
+
+  const MobHandler = () => {
+    const toggleNavbar = () => setDeviceStyle(prevState => ( prevState === "mobile" ? "toggle-nav" : "mobile"))
+    if(deviceStyle === 'mobile' || deviceStyle === 'toggle-nav') return (
+      <button className='nav-bar-toggle-event' onClick={toggleNavbar}>
+        <img className={`${deviceStyle}`} src={funcs.retrieve_image("gray-arrow-triangle-button.png", true)}></img>
+      </button>
+    )
+    else return <></>
+  }
 
   return(
-    <nav className='nav-bar'>
-      <div className='creator-pallet'>
-        <span style={{zIndex: 2}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
-        <img src={funcs.retrieve_image('rand.png', true)} alt="My iconic branding on the internet"></img> {/* My YouTube profile*/}
-      </div>
-      <div className='real-nav'>
-        <ul>
-          <li><a className='nav-text' href=''>How to use?</a></li>
-          <li><a className='nav-text' href=''>FAQ</a></li>
-          <li><a className='nav-text' href=''>Documentation</a></li>
-        </ul>
-        <RegisterBundleButtons />
-      </div>
-    </nav>
+    <>
+      <nav className={`nav-bar ${deviceStyle}`}>
+        <div className='nav-container'>
+          <div className='creator-pallet'>
+            <span style={{zIndex: 2}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{creatorName}</span>
+            <img src={funcs.retrieve_image('CodingWithRand.png', true)} alt="My iconic branding on the internet"></img> {/* My YouTube profile*/}
+          </div>
+          <div className='real-nav'>
+            <ul>
+              <li><a className='nav-text' href=''>How to use?</a></li>
+              <li><a className='nav-text' href=''>FAQ</a></li>
+              <li><a className='nav-text' href=''>Documentation</a></li>
+            </ul>
+            <RegisterBundleButtons />
+          </div>
+        </div>
+        <MobHandler />
+      </nav>
+    </>
   );
 }
 
