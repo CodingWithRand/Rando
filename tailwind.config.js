@@ -9,7 +9,7 @@ module.exports = {
       },
       screens: {
         'fs': '1180px',
-        'as': {'min': '768px', 'max': '1180px'}
+        'as': {'min': '768px', 'max': '1179px'}
       },
     },
   },

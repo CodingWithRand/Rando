@@ -6,7 +6,7 @@
       @apply w-[40vw] sm:w-[35vw] as:w-[25vw] fs:h-max fs:w-full h-full absolute i-flex-row z-[1];
     }
     .nav-container{
-      @apply i-flex-col justify-between h-full w-full bg-amber-300/90 dark:bg-neutral-900 fs:z-0 fs:i-flex-row fs:items-center 
+      @apply i-flex-col justify-between h-full w-[90%] fs:w-full bg-amber-300/90 dark:bg-neutral-900 fs:z-0 fs:i-flex-row fs:items-center 
     }
     .real-nav{
       @apply overflow-auto i-flex-col justify-between bg-amber-400/70 h-full dark:bg-[rgb(15,15,15)] fs:i-flex-row fs:justify-normal fs:items-center fs:gap-x-8 fs:pr-20 fs:pl-5;
@@ -69,11 +69,11 @@
     .rotated{transform: rotate(180deg);}
   
     .sign-up{
-      @apply bg-cyan-300 text-white hover:bg-cyan-400;
+      @apply text-neutral-200
     }
    
     .log-in{
-      @apply bg-neutral-100 hover:bg-neutral-200;
+      @apply text-neutral-100
     }
   
     .drop-down{
@@ -114,7 +114,7 @@
     }
   
     .mobile{
-      @apply translate-x-[-91%] sm:translate-x-[-90%] transition-transform duration-100 fs:transition-none fs:translate-x-0 fs:translate-x-0
+      @apply translate-x-[-90%] md:translate-x-[-85%] transition-transform duration-100 fs:transition-none fs:translate-x-0 fs:translate-x-0
     }
   
     .toggle-nav{
