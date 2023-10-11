@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import '../css/use/nav.css'
 
 const RegisterBundleButtons = () => {
-  let registered = true;
+  let registered = false;
   let userName = 'Example';
   const [dropdownState, setDropdownState] = useState({
     dropdownVisibility: {
@@ -113,7 +113,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1180) setDeviceStyle('pc');
+      if (window.innerWidth > 1179) setDeviceStyle('pc');
       else if(deviceStyle === 'pc') setDeviceStyle('mobile');
     };
   
